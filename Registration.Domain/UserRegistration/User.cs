@@ -1,18 +1,20 @@
+using System;
+
 namespace Registration.Domain.UserRegistration;
 
-public class User
+public sealed class User
 {
-    private readonly Id _id;
-
-    public string Id => _id.Value.ToString();
+    public Guid Id { get; }
     public Password Password { get; }
     public Email Email { get; }
     public Company Company { get; }
     public string CompanyName => Company.Name;
 
-    public User(Email email!!, Password password!!, Company company!!)
+    protected User() { }
+
+    public User(Email email, Password password!!, Company company!!)
     {
-        _id = new Id();
+        Id = Guid.NewGuid();
         Email = email;
         Password = password;
         Company = company;

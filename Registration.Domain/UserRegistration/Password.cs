@@ -5,12 +5,15 @@ using System.Text;
 
 namespace Registration.Domain.UserRegistration;
 
-public class Password
+public sealed class Password
 {
-    public string PasswordHash { get; }
+    public string PasswordHash { get; set; } = string.Empty;
+
+    protected Password() { }
 
     public Password(string password!!)
     {
+
         Validate(password);
         PasswordHash = HashPassword(password);
     }

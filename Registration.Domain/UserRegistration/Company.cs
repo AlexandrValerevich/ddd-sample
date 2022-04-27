@@ -1,19 +1,26 @@
+using System;
 using System.Collections.Generic;
 
 namespace Registration.Domain.UserRegistration;
 
-public class Company
+public sealed class Company
 {
-    private readonly Id _id;
     private readonly List<User> _users;
 
-    public string Id => _id.Value.ToString();
+    public Guid Id { get; }
     public string Name { get; private set; }
     public IReadOnlyCollection<User> Users => _users;
 
+    protected Company()
+    {
+        Id = Guid.NewGuid();
+        _users = new List<User>();
+        Name = string.Empty;
+    }
+
     public Company(string name!!)
     {
-        _id = new Id();
+        Id = Guid.NewGuid();
         _users = new List<User>();
         Name = name;
     }

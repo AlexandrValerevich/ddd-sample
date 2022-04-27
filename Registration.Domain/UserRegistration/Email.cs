@@ -5,10 +5,12 @@ using System.Linq;
 
 namespace Registration.Domain.UserRegistration;
 
-public class Email
+public sealed class Email
 {
-    private readonly string _email;
+    private readonly string _email = string.Empty;
     public string Value => _email;
+
+    protected Email() { }
 
     public Email(string email!!, IReadOnlyCollection<Email> existentEmails!!)
     {
