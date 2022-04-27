@@ -13,14 +13,20 @@ class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasOne(u => u.Company)
                .WithMany(c => c.Users);
 
-        builder.OwnsOne(u => u.Email, email => 
+        builder.OwnsOne(u => u.Email, email =>
         {
             email.Property(e => e.Value)
                  .HasField("_email")
                  .UsePropertyAccessMode(PropertyAccessMode.PreferFieldDuringConstruction);
-                 
-            email.ToTable("Eamil"); 
+
+            email.ToTable("Eamil");
         });
-        builder.OwnsOne(u => u.Password, password => { password.ToTable("Password"); });
+        builder.OwnsOne(u => u.Password, password =>
+        {
+            password.Property(p => p.PasswordHash)
+                    .UsePropertyAccessMode(PropertyAccessMode.PreferFieldDuringConstruction);
+
+            password.ToTable("Password");
+        });
     }
 }

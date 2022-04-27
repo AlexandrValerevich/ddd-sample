@@ -12,7 +12,7 @@ public sealed class User
 
     protected User() { }
 
-    public User(Email email, Password password!!, Company company!!)
+    public User(Email email!!, Password password!!, Company company!!)
     {
         Id = Guid.NewGuid();
         Email = email;

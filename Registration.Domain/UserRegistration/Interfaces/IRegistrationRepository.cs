@@ -5,6 +5,6 @@ namespace Registration.Domain.UserRegistration.Interfaces;
 
 public interface IRegistrationRepository
 {
-    Task<IEnumerable<Email>> ReadExistentEmails();
-    Task<IEnumerable<Company>> ReadAllCompanies();
+    Task<IEnumerable<Email>> ReadExistentEmailsAsync();
+    Task<User> AddUserAsync(User newUser);
 }

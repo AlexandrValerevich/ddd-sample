@@ -12,19 +12,19 @@ public sealed class Email
 
     protected Email() { }
 
-    public Email(string email!!, IReadOnlyCollection<Email> existentEmails!!)
+    public Email(string email!!, IEnumerable<Email> existentEmails!!)
     {
         Validate(email, existentEmails);
         _email = email;
     }
 
-    private static void Validate(string email, IReadOnlyCollection<Email> existentEmails)
+    private static void Validate(string email, IEnumerable<Email> existentEmails)
     {
         CheckEmailFormat(email);
         CheckExistingEmail(email, existentEmails);
     }
 
-    private static void CheckExistingEmail(string email, IReadOnlyCollection<Email> existentEmails)
+    private static void CheckExistingEmail(string email, IEnumerable<Email> existentEmails)
     {
         bool isExist = existentEmails.Any(e => e._email.Equals(email));
         if (isExist)

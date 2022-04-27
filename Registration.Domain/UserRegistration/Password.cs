@@ -7,7 +7,7 @@ namespace Registration.Domain.UserRegistration;
 
 public sealed class Password
 {
-    public string PasswordHash { get; set; } = string.Empty;
+    public string PasswordHash { get; } = string.Empty;
 
     protected Password() { }
 
