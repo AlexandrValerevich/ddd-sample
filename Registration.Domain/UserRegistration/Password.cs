@@ -5,6 +5,8 @@ using System.Text;
 
 namespace Registration.Domain.UserRegistration;
 
+#pragma warning disable CS0628
+
 public sealed class Password
 {
     public string PasswordHash { get; } = string.Empty;

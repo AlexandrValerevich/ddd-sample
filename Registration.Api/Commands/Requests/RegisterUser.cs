@@ -1,5 +1,4 @@
 using MediatR;
-using Registration.Domain.UserRegistration;
 
 namespace Registration.Api.Commands.Requests;
 

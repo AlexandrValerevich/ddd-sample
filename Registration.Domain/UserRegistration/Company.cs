@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Registration.Domain.UserRegistration;
 
+#pragma warning disable CS0628
+
 public sealed class Company
 {
     private readonly List<User> _users;

@@ -21,6 +21,7 @@ class UserConfiguration : IEntityTypeConfiguration<User>
 
             email.ToTable("Eamil");
         });
+        
         builder.OwnsOne(u => u.Password, password =>
         {
             password.Property(p => p.PasswordHash)

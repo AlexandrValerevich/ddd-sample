@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace Registration.Domain.UserRegistration;
 
+#pragma warning disable CS0628
+
 public sealed class Email
 {
     private readonly string _email = string.Empty;

@@ -2,6 +2,9 @@ using System;
 
 namespace Registration.Domain.UserRegistration;
 
+#pragma warning disable CS0628
+#pragma warning disable CS8618
+
 public sealed class User
 {
     public Guid Id { get; }
